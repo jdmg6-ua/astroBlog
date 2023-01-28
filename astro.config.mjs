@@ -7,5 +7,5 @@ import tailwind from "@astrojs/tailwind";
 export default defineConfig({
   integrations: [tailwind()],
   site: "https://jdmg6-ua.github.io",
-  base: "/blog"
+  base: "/astroBlog"
 });
