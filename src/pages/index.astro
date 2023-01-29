@@ -1,12 +1,75 @@
 ---
+import Aside from "../components/Aside";
+import Card from "../components/Card.astro";
 import Layout from "../layouts/Layout.astro";
+
+const posts = await Astro.glob("../pages/posts/*.mdx");
 ---
 
-<Layout title="Welcome to Astro.">
-	<div
-		class="container mx-auto grid h-full grid-cols-1 md:grid-cols-blog gap-4 p-6"
-	>
-		<main class="border-solid border-2"></main>
-		<aside class="border-solid border-2"></aside>
+<Layout title="Blog hecho con ASTRO.">
+	<div class="sm:grid sm:grid-cols-blog">
+		<Aside client:visible />
+		<div class="p-4">
+			<div
+				class="p-4 border-2 sm:h- border-gray-200 border-dashed rounded-lg"
+			>
+				<Card
+					style="mb-4 sm:min-h-36"
+					href={posts[0].url}
+					title={posts[0].frontmatter.title}
+					description={posts[0].frontmatter.publishedAt}
+				/>
+				<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+					<Card
+						href={posts[0].url}
+						title={posts[0].frontmatter.title}
+						description={posts[0].frontmatter.publishedAt}
+					/>
+					<Card
+						href={posts[0].url}
+						title={posts[0].frontmatter.title}
+						description={posts[0].frontmatter.publishedAt}
+					/>
+					<Card
+						href={posts[0].url}
+						title={posts[0].frontmatter.title}
+						description={posts[0].frontmatter.publishedAt}
+					/>
+					<Card
+						href={posts[0].url}
+						title={posts[0].frontmatter.title}
+						description={posts[0].frontmatter.publishedAt}
+					/>
+				</div>
+				<Card
+					style="mb-4 sm:min-h-36"
+					href={posts[0].url}
+					title={posts[0].frontmatter.title}
+					description={posts[0].frontmatter.publishedAt}
+				/>
+				<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+					<Card
+						href={posts[0].url}
+						title={posts[0].frontmatter.title}
+						description={posts[0].frontmatter.publishedAt}
+					/>
+					<Card
+						href={posts[0].url}
+						title={posts[0].frontmatter.title}
+						description={posts[0].frontmatter.publishedAt}
+					/>
+					<Card
+						href={posts[0].url}
+						title={posts[0].frontmatter.title}
+						description={posts[0].frontmatter.publishedAt}
+					/>
+					<Card
+						href={posts[0].url}
+						title={posts[0].frontmatter.title}
+						description={posts[0].frontmatter.publishedAt}
+					/>
+				</div>
+			</div>
+		</div>
 	</div>
 </Layout>

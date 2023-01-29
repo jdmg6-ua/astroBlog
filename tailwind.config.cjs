@@ -5,7 +5,7 @@ module.exports = {
 		extend: {
 			gridTemplateColumns: {
 				// Simple 16 column grid
-				'blog': '1fr 250px',
+				'blog': '256px 1fr',
 			},
 			gridTemplateRows: {
 				'blog': '100px 1fr',
