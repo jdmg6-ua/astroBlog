@@ -13,61 +13,29 @@ const posts = await Astro.glob("../pages/posts/*.mdx");
 			<div
 				class="p-4 border-2 sm:h- border-gray-200 border-dashed rounded-lg"
 			>
-				<Card
-					style="mb-4 sm:min-h-36"
-					href={posts[0].url}
-					title={posts[0].frontmatter.title}
-					description={posts[0].frontmatter.publishedAt}
-				/>
 				<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
-					<Card
-						href={posts[0].url}
-						title={posts[0].frontmatter.title}
-						description={posts[0].frontmatter.publishedAt}
-					/>
-					<Card
-						href={posts[0].url}
-						title={posts[0].frontmatter.title}
-						description={posts[0].frontmatter.publishedAt}
-					/>
-					<Card
-						href={posts[0].url}
-						title={posts[0].frontmatter.title}
-						description={posts[0].frontmatter.publishedAt}
-					/>
-					<Card
-						href={posts[0].url}
-						title={posts[0].frontmatter.title}
-						description={posts[0].frontmatter.publishedAt}
-					/>
-				</div>
-				<Card
-					style="mb-4 sm:min-h-36"
-					href={posts[0].url}
-					title={posts[0].frontmatter.title}
-					description={posts[0].frontmatter.publishedAt}
-				/>
-				<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
-					<Card
-						href={posts[0].url}
-						title={posts[0].frontmatter.title}
-						description={posts[0].frontmatter.publishedAt}
-					/>
-					<Card
-						href={posts[0].url}
-						title={posts[0].frontmatter.title}
-						description={posts[0].frontmatter.publishedAt}
-					/>
-					<Card
-						href={posts[0].url}
-						title={posts[0].frontmatter.title}
-						description={posts[0].frontmatter.publishedAt}
-					/>
-					<Card
-						href={posts[0].url}
-						title={posts[0].frontmatter.title}
-						description={posts[0].frontmatter.publishedAt}
-					/>
+					{
+						posts &&
+							posts.map((post, index) => {
+								let { url, frontmatter } = post;
+								let { title, description, imageSrc } =
+									frontmatter;
+
+								return (
+									<Card
+										style={`${
+											index == 0 || index % 5 == 0
+												? "col-span-full sm:min-h-36"
+												: ""
+										}`}
+										href={url}
+										title={title}
+										description={description}
+										imageSrc={imageSrc}
+									/>
+								);
+							})
+					}
 				</div>
 			</div>
 		</div>
